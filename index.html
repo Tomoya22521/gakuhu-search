@@ -4,15 +4,29 @@
   <meta charset="UTF-8">
   <title>楽譜検索</title>
   <style>
-    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
-    input { padding: 10px; width: 300px; }
-    button { padding: 10px 20px; margin: 10px; }
-    .subtitle { font-size: 16px; color: #555; }
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      margin-top: 50px;
+      background-color: #e0f7fa; /* 背景色を薄い水色に */
+    }
+    input {
+      padding: 10px;
+      width: 300px;
+    }
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+    }
+    .subtitle {
+      font-size: 16px;
+      color: #555;
+    }
   </style>
 </head>
 <body>
   <h1>楽譜検索</h1>
-  <p class="subtitle">ぷりんと楽譜のサイトに飛んで、楽譜が閲覧できるか確認できます。</p>
+  <p class="subtitle">ぷりんと楽譜のサイトに飛んで楽譜があるかを確認できます。</p>
   <input type="text" id="keyword" placeholder="キーワードを入力">
   <br>
   <button onclick="search()">検索</button>
