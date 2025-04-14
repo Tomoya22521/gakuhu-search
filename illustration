@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>楽譜検索</title>
+  <style>
+    /* ページ全体のスタイル */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f8ff;
+      text-align: center;
+      margin-top: 50px;
+      color: #333;
+    }
+
+    h1 {
+      color: #005f73;
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+
+    /* 入力フォームのスタイル */
+    input {
+      padding: 12px;
+      width: 300px;
+      border-radius: 20px;
+      border: 2px solid #005f73;
+      font-size: 16px;
+      margin-bottom: 20px;
+      outline: none;
+      transition: all 0.3s ease;
+    }
+
+    input:focus {
+      border-color: #008C99;
+      box-shadow: 0 0 5px rgba(0, 136, 153, 0.5);
+    }
+
+    /* ボタンのスタイル */
+    button {
+      padding: 12px 20px;
+      font-size: 16px;
+      background-color: #008C99;
+      color: white;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #005f73;
+    }
+
+    /* 結果表示エリア */
+    #resultCount {
+      margin-top: 20px;
+      font-size: 18px;
+      color: #008C99;
+      font-weight: bold;
+    }
+
+    /* イラストを配置 */
+    .illustration {
+      margin-top: 30px;
+      width: 200px;
+      height: auto;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+</head>
+<body>
+  <h1>楽譜検索</h1>
+  
+  <!-- 入力欄とボタン -->
+  <input type="text" id="keyword" placeholder="キーワードを入力">
+  <br>
+  <button onclick="search()">検索</button>
+  <button onclick="resetInput()">リセット</button>
+  
+  <!-- 結果の件数を表示 -->
+  <div id="resultCount"></div>
+
+  <!-- イラスト -->
+  <img src="https://example.com/illustration.png" alt="イラスト" class="illustration">
+
+  <script>
+    function search() {
+      const keyword = document.getElementById('keyword').value;
+      if (keyword.trim()) {
+        // 検索結果URLを生成
+        const encoded = encodeURIComponent(keyword);
+        const url = `https://www.print-gakufu.com/search/result/score___keyword__${encoded}___subscription/`;
+        window.open(url, '_blank');
+
+        // 手動で件数を入力（仮の件数）
+        const resultCount = 25; // 仮の結果件数
+        document.getElementById('resultCount').innerText = `検索結果: ${resultCount} 件`;
+      } else {
+        alert('キーワードを入力してください。');
+      }
+    }
+
+    function resetInput() {
+      document.getElementById('keyword').value = '';
+      document.getElementById('resultCount').innerText = ''; // 件数をリセット
+    }
+  </script>
+</body>
+</html>
