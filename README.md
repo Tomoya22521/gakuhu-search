@@ -1,1 +1,37 @@
 # gakuhu-search
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>楽譜検索</title>
+  <style>
+    body { font-family: sans-serif; text-align: center; margin-top: 50px; }
+    input { padding: 10px; width: 300px; }
+    button { padding: 10px 20px; margin: 10px; }
+  </style>
+</head>
+<body>
+  <h1>楽譜検索</h1>
+  <input type="text" id="keyword" placeholder="キーワードを入力">
+  <br>
+  <button onclick="search()">検索</button>
+  <button onclick="resetInput()">リセット</button>
+
+  <script>
+    function search() {
+      const keyword = document.getElementById('keyword').value;
+      if (keyword.trim()) {
+        const encoded = encodeURIComponent(keyword);
+        const url = `https://www.print-gakufu.com/search/result/score___keyword__${encoded}___subscription/`;
+        window.open(url, '_blank');
+      } else {
+        alert('キーワードを入力してください。');
+      }
+    }
+
+    function resetInput() {
+      document.getElementById('keyword').value = '';
+    }
+  </script>
+</body>
+</html>
